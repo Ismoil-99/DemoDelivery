@@ -1,0 +1,3 @@
+package tjk.itservice.demodelivery.ui.utils
+
+const val TOKEN = "6A2B3C4D5E6F7A8B9C0D1E2F3A4B5C6D7E8F9A0B1C2D3E4F5A6B7C8D9E0F1A2"

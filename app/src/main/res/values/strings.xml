@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">DemoDelivery</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="API_KEY">AIzaSyA-x9x4oLduTLj9HZ6tRs3T65HhxzBy8oQ</string>
+    <string name="tracking_delivery">Отслеживание посылки</string>
+</resources>
