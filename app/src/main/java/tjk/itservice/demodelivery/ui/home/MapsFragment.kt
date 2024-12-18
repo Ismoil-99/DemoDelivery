@@ -4,10 +4,14 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.os.Bundle
-import android.util.Log
+import android.os.Handler
+import android.os.Looper
+import android.os.SystemClock
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AccelerateDecelerateInterpolator
+import android.view.animation.Interpolator
 import androidx.annotation.DrawableRes
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -19,6 +23,7 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.BitmapDescriptor
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
@@ -39,6 +44,7 @@ class MapsFragment : Fragment() {
 
     private lateinit var job:Job
 
+
     private val callback = OnMapReadyCallback { googleMap ->
 
 
@@ -49,7 +55,6 @@ class MapsFragment : Fragment() {
 
         val delivery = LatLng(0.0,0.0)
         val deliveryMarker = googleMap.addMarker(MarkerOptions().position(delivery).title("Delivery").icon(getBitmapDescriptorFromVector(requireContext(),R.drawable.curer_icon1)))
-
         job = startRepeatingJob(4000L){
             lifecycleScope.launch {
                 viewModel.getTrack().collectLatest { location ->
@@ -100,6 +105,8 @@ class MapsFragment : Fragment() {
             }
         }
     }
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()

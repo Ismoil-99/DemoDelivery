@@ -13,5 +13,7 @@ data class LocationsDelivery(
     @SerializedName("latitude")
     val latitude:String,
     @SerializedName("longitude")
-    val longitude:String
+    val longitude:String,
+    @SerializedName("bearing")
+    val bearing:String
 )
